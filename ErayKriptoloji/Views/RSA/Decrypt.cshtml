@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "RSA Decrypt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .crypto-label {
+        color: #00bfff;
+        font-weight: bold;
+    }
+
+    .crypto-box {
+        background-color: #0f0f0f;
+        border: 1px solid #00bfff44;
+        padding: 15px;
+        color: #00bfff;
+        border-radius: 10px;
+        font-family: 'Courier New', monospace;
+        white-space: pre-wrap;
+        word-break: break-word;
+        box-shadow: 0 0 15px #00bfff22;
+    }
+
+    .btn-blue {
+        background-color: #0a84ff;
+        color: white;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        padding: 10px 25px;
+    }
+
+        .btn-blue:hover {
+            background-color: #006edc;
+            box-shadow: 0 0 10px #0a84ff;
+        }
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-info text-center mb-4">🔓 RSA Çözme (Decrypt)</h1>
+
+    <form method="post" asp-controller="RSA" asp-action="Decrypt">
+        <div class="mb-3">
+            <label class="crypto-label">📥 Şifreli Metin (Base64):</label>
+            <textarea name="encryptedText" class="form-control" rows="3">@ViewBag.EncryptedText</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="crypto-label">🔐 Private Key (D, P, Q - Satır Satır):</label>
+            <textarea name="privateKeyFull" class="form-control" rows="4" placeholder="1. satır: D&#10;2. satır: P&#10;3. satır: Q">@ViewBag.PrivateKeyFull</textarea>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-blue">🔓 Şifreyi Çöz</button>
+        </div>
+    </form>
+
+    @if (ViewBag.DecryptedText != null)
+    {
+        <div class="mt-5">
+            <label class="crypto-label">📤 Çözülmüş Metin:</label>
+            <div class="crypto-box">@ViewBag.DecryptedText</div>
+        </div>
+    }
+
+    <div class="text-center mt-4">
+        <a href="/Home/Index" class="btn btn-blue">⬅️ Ana Sayfaya Dön</a>
+    </div>
+</div>

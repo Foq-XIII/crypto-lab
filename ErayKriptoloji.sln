@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErayKriptoloji", "ErayKriptoloji\ErayKriptoloji.csproj", "{00369B6F-0FB4-4DD3-A54B-0C89C3F9B4FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00369B6F-0FB4-4DD3-A54B-0C89C3F9B4FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00369B6F-0FB4-4DD3-A54B-0C89C3F9B4FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00369B6F-0FB4-4DD3-A54B-0C89C3F9B4FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00369B6F-0FB4-4DD3-A54B-0C89C3F9B4FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B37A32F-91C8-4F78-81B7-CA18DAF4295F}
+	EndGlobalSection
+EndGlobal

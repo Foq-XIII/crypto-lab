@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "RSA Şifrele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .crypto-label {
+        color: #00bfff;
+        font-weight: bold;
+    }
+
+    .crypto-box {
+        background-color: #0f0f0f;
+        border: 1px solid #00bfff44;
+        padding: 15px;
+        color: #00bfff;
+        border-radius: 10px;
+        font-family: 'Courier New', monospace;
+        white-space: pre-wrap;
+        word-break: break-word;
+        box-shadow: 0 0 15px #00bfff22;
+    }
+
+    .btn-blue {
+        background-color: #0a84ff;
+        color: white;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        padding: 10px 25px;
+    }
+
+        .btn-blue:hover {
+            background-color: #006edc;
+            box-shadow: 0 0 10px #0a84ff;
+        }
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-info text-center mb-4">🔐 RSA Şifreleme</h1>
+
+    <form method="post" asp-controller="RSA" asp-action="Encrypt">
+        <div class="mb-3">
+            <label class="crypto-label">📥 Şifrelenecek Metin:</label>
+            <textarea name="plaintext" class="form-control" rows="3">@ViewBag.Plaintext</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="crypto-label">🔑 Public Key (Modulus ve Exponent - Satır Satır):</label>
+            <textarea name="publicKeyFull" class="form-control" rows="3" placeholder="1. satır: Modulus&#10;2. satır: Exponent">@ViewBag.PublicKeyFull</textarea>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-blue">🔒 Şifrele</button>
+        </div>
+    </form>
+
+    @if (ViewBag.EncryptedText != null)
+    {
+        <div class="mt-5">
+            <label class="crypto-label">📤 Şifrelenmiş Sonuç (Base64):</label>
+            <div class="crypto-box">@ViewBag.EncryptedText</div>
+        </div>
+    }
+
+    <div class="text-center mt-4">
+        <a href="/Home/Index" class="btn btn-blue">⬅️ Ana Sayfaya Dön</a>
+    </div>
+</div>

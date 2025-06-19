@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Kripto Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #0a0a0a;
+        font-family: 'Segoe UI', sans-serif;
+        color: #ffffff;
+    }
+
+    .crypto-header {
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+
+        .crypto-header h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 20px #00bfff;
+        }
+
+    .crypto-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .crypto-button {
+        background: linear-gradient(135deg, #001f3f, #003366);
+        border: 2px solid #00bfff;
+        color: #00bfff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px #00bfff44;
+    }
+
+        .crypto-button:hover {
+            background: #002244;
+            transform: scale(1.03);
+            box-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff44;
+        }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+</style>
+
+<div class="crypto-header">
+    <h1>🔐 Kriptografi Merkezi</h1>
+    <p class="text-secondary">RSA & SHA-256 işlemlerine hızlı erişim</p>
+</div>
+
+<div class="crypto-panel">
+    <div class="section-title">RSA Modülü</div>
+    <a href="/RSA/GenerateKeys" class="crypto-button">🔑 Anahtar Üret</a>
+    <a href="/RSA/Encrypt" class="crypto-button">🔒 Şifrele</a>
+    <a href="/RSA/Decrypt" class="crypto-button">🔓 Çöz</a>
+
+    <div class="section-title mt-4">SHA-256</div>
+    <a href="/SHA256/Index" class="crypto-button">🔁 Hash Oluştur</a>
+</div>

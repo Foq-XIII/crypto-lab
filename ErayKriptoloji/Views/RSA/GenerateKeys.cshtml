@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Anahtar Üret";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-control,
+    .btn,
+    .key-box {
+        border-radius: 10px;
+    }
+
+    .key-box {
+        background-color: #0f0f0f;
+        border: 1px solid #00bfff44;
+        padding: 20px;
+        color: #00bfff;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: 'Courier New', monospace;
+        box-shadow: 0 0 15px #00bfff33;
+        position: relative;
+    }
+
+    .section-title {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        text-shadow: 0 0 5px #00bfff;
+    }
+
+    .btn-blue {
+        background-color: #0a84ff;
+        color: white;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-blue:hover {
+            background-color: #006edc;
+            box-shadow: 0 0 10px #0a84ff;
+        }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-center text-info mb-4">🔐 RSA Anahtar Üretimi</h1>
+
+    <form method="post" asp-controller="RSA" asp-action="GenerateKeys" class="text-center mb-5">
+        <label for="keySize" class="text-light me-2">Anahtar Uzunluğu:</label>
+        <select id="keySize" name="keySize" class="form-control d-inline w-auto me-3">
+            <option value="2048" selected>2048 bit</option>
+            <option value="4096">4096 bit</option>
+            <option value="8192">8192 bit</option>
+        </select>
+        <button type="submit" class="btn btn-blue">🔄 Anahtar Üret</button>
+    </form>
+
+    @if (ViewBag.PublicKey != null)
+    {
+        <div class="section-title">🔑 Public Key</div>
+        <div class="key-box" id="publicKeyBox">
+            @ViewBag.PublicKey
+        </div>
+        <div class="text-end">
+            <button class="btn btn-sm btn-blue mt-2" onclick="copyText('publicKeyBox')">📋 Kopyala</button>
+        </div>
+
+        <div class="section-title">🔒 Private Key</div>
+        <div class="key-box" id="privateKeyBox">
+            @ViewBag.PrivateKey
+        </div>
+        <div class="text-end">
+            <button class="btn btn-sm btn-blue mt-2" onclick="copyText('privateKeyBox')">📋 Kopyala</button>
+        </div>
+    }
+
+    <div class="text-center mt-5">
+        <a href="/Home/Index" class="btn btn-blue px-4 py-2">⬅️ Ana Sayfaya Dön</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function copyText(elementId) {
+            const content = document.getElementById(elementId).innerText.trim();
+            const temp = document.createElement("textarea");
+            temp.value = content;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+            alert("Kopyalandı!");
+        }
+    </script>
+}
